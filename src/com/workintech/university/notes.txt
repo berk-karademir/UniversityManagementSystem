@@ -1,0 +1,8 @@
+Array, ArrayList, LinkedList, Set
+
+
+sürekli değişecekse ArrayList
+List, Set, Map ler getterlar ve setterlar ile genelde dışarı açılmaz.
+
+
+-Set:
