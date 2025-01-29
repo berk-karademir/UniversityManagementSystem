@@ -36,12 +36,15 @@ public class Main {
 //
 //
 //        //mühendislik fak ve bölümleri
+//
 //        Faculty comuEngineering = new EngineeringFaculty();
+//
 //        Department comuEngineeringComputer = new ComputerEngineering();
 //        Department comuEngineeringMechanical = new MechanicalEngineering();
+//
 //        comuEngineering.addDepartment(comuEngineeringComputer);
 //        comuEngineering.addDepartment(comuEngineeringMechanical);
-//
+//        comu.addFaculty(comuEngineering);
 //
 //
 //        //önce ünive'ye fakülteleri, sonra fakülteye departmentları(bölümleri) ekledik
@@ -50,47 +53,54 @@ public class Main {
 //        comuTourism.addDepartment(comuTourismAccommodation);
 //        System.out.println("---------------------------------------");
 //        System.out.println("COMU'nün son hali >>>\n" +comu);
-
-        /*
-        -üni yarat,
-        -fakülteler yarat, üniye bunları ekle,
-        -fakültelere bölüm yada bölümleri ekle,
-        -bölümlere dersleri ekle  (** ! **)
-
-        */
-
-
-
-
-        System.out.println("--------------------***   outputs of related to basic constructors  ***-------------------");
-
-
-        University universityInstance = new University("My university","Rektör Adı");
-        University universityInstance2 = new University("My university - 2","Rektör Adı - 2");
-
-        Faculty facultyInstance = new Faculty(900L,"Fakülte adı","Dekan adı","Fakülte Adresi",universityInstance);
-        Faculty facultyInstance2 = new Faculty(900L,"Fakülte adı - 2 ","Dekan adı - 2","Fakülte Adresi - 2",universityInstance);
-
-        Department departmentInstance = new Department(901L, "Bölüm adı","Bölüm başkanı adı", facultyInstance);
-
-        System.out.println("Üni yaratıldı: boş, fakültesiz hali >>>\n" + universityInstance);
-
-        br();
-        /*
-        hem facultyInstance, hem de facultyInstance2 'nin University university fieldları universityInstance ile set edildi.
-        yani her iki fakülte de universityInstance universitesine ait, buz yüzden bu fakülteler universityInstance2 universitesine eklenemez: lookat: University > addFaculty();
-        */
-        System.out.println("Universiteye ait olmayan bir fakülteyi eklemeye çaşılıyorum");
-        universityInstance2.addFaculty(facultyInstance2);
-        facultyInstance.addDepartment(departmentInstance);
+//
+//        /*
+//        -üni yarat,
+//        -fakülteler yarat, üniye bunları ekle,
+//        -fakültelere bölüm yada bölümleri ekle,
+//        -bölümlere dersleri ekle  (** ! **)
+//
+//        */
 
 
 
-        System.out.println("\n------------- ***   ( RESULT ) - After adding faculty and faculties' departments  *** ----------------\n" + universityInstance);
 
-        System.out.println("---------------------");
-        System.out.println(universityInstance);
+//        System.out.println("--------------------***   outputs of related to basic constructors  ***-------------------");
+//
+//
+//        University universityInstance1 = new University("My university","Rektör Adı");
+//        University universityInstance2 = new University("My university - 2","Rektör Adı - 2");
+//
+//        Faculty facultyInstance = new Faculty(900L,"Fakülte adı","Dekan adı","Fakülte Adresi",universityInstance1);
+//        Faculty facultyInstance2 = new Faculty(900L,"Fakülte adı - 2 ","Dekan adı - 2","Fakülte Adresi - 2",universityInstance1);
+//
+//        Department departmentInstance = new Department(901L, "Bölüm adı","Bölüm başkanı adı", facultyInstance);
+//
+//        System.out.println("Üni yaratıldı: boş, fakültesiz hali >>>\n" + universityInstance1);
+//
+//        br();
+//        /*
+//        hem facultyInstance, hem de facultyInstance2 'nin University university fieldları universityInstance ile set edildi.
+//        yani her iki fakülte de universityInstance universitesine ait, buz yüzden bu fakülteler universityInstance2 universitesine eklenemez: lookat: University > addFaculty();
+//        */
+//        System.out.println("Universiteye ait olmayan bir fakülteyi eklemeye çaşılıyorum");
+//        universityInstance2.addFaculty(facultyInstance2);
+//        facultyInstance.addDepartment(departmentInstance);
+//
+//
+//
+//        System.out.println("\n------------- ***   ( RESULT ) - After adding faculty and faculties' departments  *** ----------------\n" + universityInstance1);
+//
+//        System.out.println("---------------------");
+//        System.out.println(universityInstance1);
 
+        System.out.println("-----------------------------   AT   ------------------------------");
+        University atUni = new University("AT","Mr. At Bey");
+        Faculty atcılıkFak = new TourismFaculty(123L,"Atcilik Fakültesi", "Atçılık Fak. Bölüm Başkanı MRS. Kısrak","AT Mahallesi", atUni);
+        Department atBakımıBölümü = new Department(234L,"AT BAKIMI","AT BAKIMI BÖLÜM BŞK.",  atcılıkFak);
+        atcılıkFak.addDepartment(atBakımıBölümü);
+        atUni.addFaculty(atcılıkFak);
+        System.out.println(atUni);
 
     }
 }

@@ -49,6 +49,10 @@ public class Faculty {
         this.university = university;
     }
 
+    public void setDepartments(Set<Department> departments) {
+        this.departments = departments;
+    }
+
     public void addDepartment(Department department) {
         if (department.getFaculty().equals(this)){
             departments.add(department);
@@ -85,7 +89,7 @@ public class Faculty {
                 "Name: " + name + "\n" +
                 "Dean: " + dean + "\n" +
                 "Address: " + address + "\n" +
-                 name + " has " + departments.size() + (departments.size() == 1 ? " department" : " departments") + departments + "\n" ;
+                 name + " has " + departments.size() + (departments.size() == 1 ? " department.\n" : " departments") + departments + "\n" ;
 
     }
 }

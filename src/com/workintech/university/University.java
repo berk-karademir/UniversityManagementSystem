@@ -17,8 +17,8 @@ public class University {
             return;
         }
         this.setName(name);
-        this.faculties = new ArrayList<>();
         this.chancellorName = chancellorName;
+        this.faculties = new ArrayList<>();
     }
 
     public String getName() {
@@ -34,23 +34,26 @@ public class University {
     }
 
     public void addFaculty(Faculty faculty) {
-        if (faculty == null) {
-            System.out.println("Faculty cannot be null!");
-            return;
-        }
-
-        // Fakültenin bu üniversiteye ait olup olmadığını kontrol et
-        if (faculty.getUniversity() != null && !faculty.getUniversity().equals(this)) {
-            System.out.println("This faculty belongs to another university!");
-            return;
-        }
 
         // Fakülte daha önceden eklenmiş mi kontrol et
         if (!faculties.contains(faculty)) {
             this.faculties.add(faculty);
             // Fakültenin bu üniversiteye ait olduğunu belirt
-            faculty.setUniversity(this);
         }
+
+
+        if (faculty == null) {
+            System.out.println("Faculty cannot be null!");
+        }
+
+        // Fakültenin bu üniversiteye ait olup olmadığını kontrol et
+        assert faculty != null;
+        if (faculty.getUniversity() == null && !faculty.getUniversity().equals(this)) {
+            System.out.println("This faculty belongs to another university!");
+        }
+
+
+
     }
 
     public boolean removeFaculty(Faculty faculty) {
